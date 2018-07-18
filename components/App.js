@@ -1,5 +1,5 @@
-var GIPHY_API_URL = 'http://api.giphy.com';
-var GIPHY_PUB_KEY = 'q4k1xiFfyXHFEVGeG4SYB8VJsIA5OtQu';
+const GIPHY_API_URL = 'http://api.giphy.com';
+const GIPHY_PUB_KEY = 'q4k1xiFfyXHFEVGeG4SYB8VJsIA5OtQu';
 
 App = React.createClass({
 
@@ -17,7 +17,7 @@ App = React.createClass({
 			loading: true
 		});
 		
-		var self = this;
+		const self = this;
 	
 		this.getGif(searchingText)
 		
@@ -40,18 +40,18 @@ App = React.createClass({
 		return new Promise (
 		function(resolve, reject){
 	
-			var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
-			var xhr = new XMLHttpRequest();
+			const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
+			const xhr = new XMLHttpRequest();
 			
 			xhr.open('GET', url);
 			xhr.onload = function(){
 			
 				if (xhr.status === 200){
 					
-					var data =JSON.parse(xhr.responseText).data; 
+					const data =JSON.parse(xhr.responseText).data; 
 					
 					if (data.type === 'gif'){							
-							var gif = {
+							const gif = {
 								url: data.fixed_width_downsampled_url,
 								sourceUrl: data.url
 							};
@@ -71,7 +71,7 @@ App = React.createClass({
 	},
 			
 	render: function(){
-		var styles = {
+		const styles = {
 			margin: '0 auto',
 			textAlign: 'center',
 			width: '90%'
