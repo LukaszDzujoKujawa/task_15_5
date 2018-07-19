@@ -16,14 +16,12 @@ App = React.createClass({
 		this.setState({
 			loading: true
 		});
-		
-		const self = this;
 	
 		this.getGif(searchingText)
 		
-			.then(function(gif){
+			.then(gif =>{
 			
-				self.setState({
+				this.setState({
 					loading: false,
 					gif: gif,
 					searchingText: searchingText
@@ -50,7 +48,7 @@ App = React.createClass({
 					
 					const data =JSON.parse(xhr.responseText).data; 
 					
-					if (data.type === 'gif'){							
+					if (data.type === 'gif'){ 							
 							const gif = {
 								url: data.fixed_width_downsampled_url,
 								sourceUrl: data.url
